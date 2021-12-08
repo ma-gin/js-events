@@ -88,8 +88,7 @@
       */
 
       const changePcontent = text => {
-          const pDivChildren = document.querySelectorAll("div p")
-          console.log(pDivChildren)
+          const pDivChildren = document.querySelectorAll("div p") //returns array
           for (let i = 0; i < pDivChildren.length; i++) pDivChildren[i].innerText = text
       }
 
@@ -99,17 +98,25 @@
        Write a function for changing the href property of every link to https://www.google.com
       */
 
-      const changeUrls = function () {
-        //
-      };
+      const changeUrls = () => {
+          // const links = document.getElementsByName("a")
+          const links = document.querySelectorAll("a") //returns array
+          for (let i = 0; i < links.length; i++) links[i].href = "https://www.google.com" //changes every link on the page
+      }
+
+      changeUrls()
 
       /* EXERCISE 5
        Write a function for adding a new list item in the second unordered list.
       */
 
-      const addToTheSecond = function (content) {
-        //
-      };
+      const addToTheSecond = content => {
+        const newListItemNode = document.createElement("li")
+        newListItemNode.innerText = content
+        document.getElementById("secondList").appendChild(newListItemNode)
+      }
+
+      addToTheSecond("NEW ITEM")
 
       /* EXERCISE 6
        Write a function for adding a second paragraph to the first div.
