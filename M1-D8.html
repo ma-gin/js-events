@@ -11,20 +11,22 @@
   <body>
     <!-- header tag -->
     <div> 
-      <h1 id="title" onclick="makeItClickable()">This is the title of the page</h1>
+      <h1 onclick="makeItClickable()">This is the title of the page</h1>
       <h2>This is the subtitle of the page</h2>
     </div>
 
-    <!-- section tag -->
+    <!-- main tag -->
     <div>
       <hr />
 
+      <!-- section tag -->
       <ul id="firstList">
         <li>1st</li>
         <li>2nd</li>
         <li>3rd</li>
       </ul>
 
+      <!-- section tag -->
       <ul id="secondList">
         <li>1st</li>
         <li>2nd</li>
@@ -60,11 +62,9 @@
        Write a function for changing the title of the document in something else.
       */
 
-      const title = document.querySelector("h1")
-
       const changeTitle = newTitle => {
           // console.log(title)
-          title.innerText = newTitle
+          document.title = newTitle
       }
 
       changeTitle("Fantastic Title")
@@ -72,9 +72,10 @@
       /* EXERCISE 2
        Write a function for changing the class of the title of the page in "myHeading".
       */
+      const heading = document.querySelector("h1")
 
       const addClassToTitle = () => {
-          title.classList.add("myHeading")
+          heading.classList.add("myHeading")
       }
       
       addClassToTitle()
@@ -118,7 +119,7 @@
        Write a function for adding a second paragraph to the first div.
       */
 
-      const addParagraph = function (content) {   //the instructions don't make sense here --(assuming it has one?)
+      const addParagraph = content => {   //the instructions don't make sense here --(assuming it has one?)
         const divNodeArray = document.querySelectorAll("div")
         const pNodeObject = document.querySelector("p")
         for (let i = 0; i < divNodeArray.length; i++){
@@ -147,7 +148,8 @@
 
       const paintItGreen = function () {
           const uLists = document.getElementsByTagName("ul")
-          for (let i = 0; i < uLists.length; i++) uLists[i].style.background = "green" //changes every link on the page
+          // for (let i = 0; i < uLists.length; i++) uLists[i].style.background = "green" //changes every link on the page
+          for (let i = 0; i < uLists.length; i++) uLists[i].style.background = "green"
       }
 
       paintItGreen()
@@ -168,7 +170,8 @@
 
       const makeItClickable = () => {
         const newColor = generateRandomColor()
-        title.style.color = newColor
+        console.log(newColor)
+        heading.style.color = newColor
       }
 
       /* EXERCISE 10
