@@ -4,12 +4,13 @@
     <style>
       .myHeading {
         color: red;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
     <div>
-      <h1 id="title">This is the title of the page</h1>
+      <h1 id="title" onclick="makeItClickable()">This is the title of the page</h1>
       <h2>This is the subtitle of the page</h2>
     </div>
 
@@ -39,13 +40,14 @@
           type="text"
           id="input-field"
           placeholder="input field for the exercise"
+          onkeydown="logInput(event)"
         />
       </div>
     </div>
 
     <div>
       <p>And this text is just for the exercise too!</p>
-      <h2 style="color: red">
+      <h2 style="color: red; cursor: pointer">
         Save this page on your computer and open it with VSCode to get the
         questions!
       </h2>
@@ -54,15 +56,6 @@
       /* EXERCISE 1
        Write a function for changing the title of the document in something else.
       */
-
-      // const changeTitle = function (newTitle) { //-----------------come back
-      //     console.log(newTitle)
-      //     const title = document.getElementsByTagName("title")
-      //     console.log(title)
-      //     title.innerHTML += newTitle
-      //     console.log(title)
-      //   //
-      // };
 
       const title = document.getElementById("title")
 
@@ -122,56 +115,86 @@
        Write a function for adding a second paragraph to the first div.
       */
 
-      const addParagraph = function (content) {
-        //
-      };
+      const addParagraph = function (content) {   //the instructions don't make sense here --(assuming it has one?)
+        const divNodeArray = document.querySelectorAll("div")
+        const pNodeObject = document.querySelector("p")
+        for (let i = 0; i < divNodeArray.length; i++){
+          if (divNodeArray[i].contains(pNodeObject) === true) {
+            const newPelement = document.createElement("p")
+            newPelement.innerText = content
+            divNodeArray[i].appendChild(newPelement)
+      }}}
+
+      addParagraph("Eeeeeyyyoop!")
 
       /* EXERCISE 7
        Write a function for making the first unordered list disappear.
       */
 
       const firstUlDisappear = function () {
+          const firtUl = document.getElementById("firstList")
+          firtUl.style.display = "none"
         //
       };
 
+      firstUlDisappear()
       /* EXERCISE 8
        Write a function for making the background of every unordered list green.
       */
 
       const paintItGreen = function () {
-        //
-      };
+          const uLists = document.getElementsByTagName("ul")
+          for (let i = 0; i < uLists.length; i++) uLists[i].style.background = "green" //changes every link on the page
+      }
+
+      paintItGreen()
 
       /* EXERCISE 9
        Make the heading of the page change color every time the user clicks on it.
       */
+      const random255 = () =>{
+        return Math.round(Math.random() * 255)
+      }
 
-      const makeItClickable = function () {
-        //
-      };
+      const generateRandomColor = () => {
+        const red = random255()
+        const green = random255()
+        const blue = random255()
+        return `rgb(${red}, ${green}, ${blue}`
+      }
+
+      const makeItClickable = () => {
+        const newColor = generateRandomColor()
+        title.style.color = newColor
+      }
 
       /* EXERCISE 10
        Change the footer text with something else when the user clicks on it.
       */
 
-      const changeFooterText = function () {
-        //
-      };
+      const changeFooterText = text => {
+        let footer = document.querySelectorAll("div h2")
+        footer = footer[footer.length - 1]
+        // console.log(footer)
+        footer.innerText = text
+      }
+
+      changeFooterText("New footer text is amazing!!")
 
       /* EXERCISE 11
        Attach an event listener to the input field in the page for console logging its value just after any keystroke.
       */
 
-      const inputField = document.getElementById("input-field");
+      const logInput = (e) => {
+        console.log(e.key)
+      }
       // ...
 
       /* EXERCISE 12
        Create a welcome alert message when the page successfully loads.
       */
 
-      window.onload = function () {
-        //
-      };
+      window.onload = () => alert("       IT'S YOU!")
 
       /* EXERCISE 13
        Use HTML5 tags to properly provide semantic meaning to the different portions of the page.
