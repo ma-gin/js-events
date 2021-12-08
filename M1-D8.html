@@ -9,11 +9,13 @@
     </style>
   </head>
   <body>
-    <div>
+    <!-- header tag -->
+    <div> 
       <h1 id="title" onclick="makeItClickable()">This is the title of the page</h1>
       <h2>This is the subtitle of the page</h2>
     </div>
 
+    <!-- section tag -->
     <div>
       <hr />
 
@@ -45,6 +47,7 @@
       </div>
     </div>
 
+    <!-- footer tag -->
     <div>
       <p>And this text is just for the exercise too!</p>
       <h2 style="color: red; cursor: pointer">
@@ -57,7 +60,7 @@
        Write a function for changing the title of the document in something else.
       */
 
-      const title = document.getElementById("title")
+      const title = document.querySelector("h1")
 
       const changeTitle = newTitle => {
           // console.log(title)
@@ -125,7 +128,7 @@
             divNodeArray[i].appendChild(newPelement)
       }}}
 
-      addParagraph("Eeeeeyyyoop!")
+      addParagraph("It Works!")
 
       /* EXERCISE 7
        Write a function for making the first unordered list disappear.
@@ -186,15 +189,14 @@
       */
 
       const logInput = (e) => {
-        console.log(e.key)
-      }
+        console.log(e.key)}
       // ...
 
       /* EXERCISE 12
        Create a welcome alert message when the page successfully loads.
       */
 
-      window.onload = () => alert("       IT'S YOU!")
+      window.onload = () => alert("       Oi!")
 
       /* EXERCISE 13
        Use HTML5 tags to properly provide semantic meaning to the different portions of the page.
